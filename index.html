@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAGAR Cinematic | Video Editing</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080808;color:#fff;line-height:1.6}
+nav{position:fixed;top:0;width:100%;z-index:10;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.7);backdrop-filter:blur(10px)}
+.logo{font-size:22px;font-weight:800;letter-spacing:1px}.logo span{color:#f5b400}
+nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:14px}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 8% 70px;background:radial-gradient(circle at 70% 40%,#3b2b00 0,#111 30%,#080808 70%)}
+.hero h1{font-size:clamp(45px,8vw,90px);line-height:1;margin-bottom:20px}
+.hero h1 span{color:#f5b400}.hero p{max-width:620px;color:#bbb;font-size:19px;margin-bottom:30px}
+.btn{display:inline-block;padding:14px 24px;border-radius:30px;background:#f5b400;color:#111;text-decoration:none;font-weight:700;margin-right:10px}
+.btn.alt{background:transparent;color:#fff;border:1px solid #555}
+section{padding:80px 8%}.title{text-align:center;margin-bottom:40px}.title h2{font-size:38px}.title p{color:#999}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#111;border:1px solid #242424;border-radius:18px;padding:25px}
+.card h3{margin-bottom:8px}.card p{color:#aaa}
+.price{font-size:30px;color:#f5b400;font-weight:800;margin:15px 0}
+.portfolio{height:230px;border-radius:18px;background:linear-gradient(135deg,#292929,#0d0d0d);display:flex;align-items:end;padding:20px;font-weight:700}
+form{max-width:650px;margin:auto}.field{margin-bottom:16px}label{display:block;margin-bottom:7px;color:#bbb}input,textarea,select{width:100%;padding:14px;border-radius:10px;border:1px solid #333;background:#111;color:#fff;font-size:15px}textarea{min-height:120px;resize:vertical}
+footer{text-align:center;padding:35px;color:#777;border-top:1px solid #222}
+@media(max-width:650px){nav .links{display:none}.hero{padding-left:6%;padding-right:6%}section{padding:65px 6%}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">SAGAR <span>CINEMATIC</span></div>
+  <div class="links"><a href="#portfolio">Portfolio</a><a href="#packages">Packages</a><a href="#order">Order</a></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <p style="color:#f5b400;font-weight:700">CINEMATIC VIDEO EDITING</p>
+    <h1>Your Story.<br><span>My Edit.</span></h1>
+    <p>Reels, weddings, travel, gaming, events and more. Turn your raw footage into a cinematic experience.</p>
+    <a class="btn" href="#order">Order Your Edit</a>
+    <a class="btn alt" href="#portfolio">View Portfolio</a>
+  </div>
+</header>
+
+<section id="portfolio">
+  <div class="title"><h2>Portfolio</h2><p>Add your best edits here.</p></div>
+  <div class="grid">
+    <div class="portfolio">Cinematic Reels</div>
+    <div class="portfolio">Wedding Films</div>
+    <div class="portfolio">Travel Edits</div>
+    <div class="portfolio">Gaming / Events</div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="title"><h2>Editing Packages</h2><p>Choose a package and tell me what you need.</p></div>
+  <div class="grid">
+    <div class="card"><h3>Basic</h3><div class="price">₹499+</div><p>Short-form edit • Clean cuts • Music sync • Basic color</p></div>
+    <div class="card"><h3>Pro</h3><div class="price">₹999+</div><p>Cinematic edit • Advanced transitions • Color grading • Sound design</p></div>
+    <div class="card"><h3>Premium</h3><div class="price">Custom</div><p>High-end project • Advanced VFX • Detailed sound design • Priority workflow</p></div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="title"><h2>Place an Order</h2><p>Fill this form and it will open WhatsApp with your order details.</p></div>
+  <form onsubmit="sendWhatsApp(event)">
+    <div class="field"><label>Your Name</label><input id="name" required></div>
+    <div class="field"><label>Editing Type</label><select id="type"><option>Reels</option><option>Wedding</option><option>Travel</option><option>Gaming</option><option>Event</option><option>Other</option></select></div>
+    <div class="field"><label>Package</label><select id="package"><option>Basic</option><option>Pro</option><option>Premium</option><option>Custom</option></select></div>
+    <div class="field"><label>Project Details</label><textarea id="details" placeholder="Tell me about your video, duration, deadline, style, etc." required></textarea></div>
+    <button class="btn" type="submit" style="border:0;cursor:pointer">Send Order on WhatsApp</button>
+  </form>
+</section>
+
+<footer>© 2026 SAGAR Cinematic • Cinematic Video Editing</footer>
+
+<script>
+function sendWhatsApp(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const type=document.getElementById('type').value;
+  const pack=document.getElementById('package').value;
+  const details=document.getElementById('details').value;
+  const msg=`Hello SAGAR Cinematic!%0A%0AName: ${encodeURIComponent(name)}%0AEditing: ${encodeURIComponent(type)}%0APackage: ${encodeURIComponent(pack)}%0ADetails: ${encodeURIComponent(details)}`;
+  window.open(`https://wa.me/919970341075?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
